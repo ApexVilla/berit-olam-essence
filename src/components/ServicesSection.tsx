@@ -1,31 +1,56 @@
 import { motion } from "framer-motion";
-import { Flower2, Gift, Heart, Crown, Gem } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 const services = [
   {
-    icon: Flower2,
+    image: "/service_decor_event_1772579064771.png",
     title: "Decoración y Diseño de Eventos",
-    desc: "Cumpleaños · Fiestas Sorpresa · Eventos Especiales · Detalles personalizados",
+    desc: "Transformamos tus ideas en escenarios extraordinarios para celebraciones inolvidables.",
+    benefits: [
+      "Diseño temático exclusivo",
+      "Ambientación floral premium",
+      "Iluminación escénica elegante"
+    ]
   },
   {
-    icon: Gift,
+    image: "/service_personalized_gifts_1772579076984.png",
     title: "Regalos Únicos y Personalizados",
-    desc: "Arte hecho con amor para sorprender",
+    desc: "Detalles artesanales diseñados para sorprender y emocionar a tus seres queridos.",
+    benefits: [
+      "Empaquetado de lujo",
+      "Caligrafía y sellos artísticos",
+      "Personalización detallada"
+    ]
   },
   {
-    icon: Heart,
+    image: "/service_wedding_dress_1772579088964.png",
     title: "Vestidos de Novia",
-    desc: "Diseños elegantes que representan una promesa eterna",
+    desc: "Diseños de alta costura que reflejan la pureza y la belleza de una promesa eterna.",
+    benefits: [
+      "Telas importadas exclusivas",
+      "Ajuste perfecto a la silueta",
+      "Asesoramiento de imagen nupcial"
+    ]
   },
   {
-    icon: Crown,
+    image: "/service_quinceanera_dress_1772579125461.png",
     title: "Vestidos para 15 Años",
-    desc: "Estética, glamour y distinción",
+    desc: "Piezas espectaculares para deslumbrar en tu transición mágica.",
+    benefits: [
+      "Bordados en cristales",
+      "Faldas de volumen romántico",
+      "Diseños vanguardistas"
+    ]
   },
   {
-    icon: Gem,
+    image: "/service_mens_suit_1772579146023.png",
     title: "Trajes de Gala para Caballeros",
-    desc: "Clase y presencia para momentos inolvidables",
+    desc: "Sastrería impecable que proyecta elegancia, clase y presencia absoluta.",
+    benefits: [
+      "Cortes modernos y clásicos",
+      "Telas de tacto premium",
+      "Accesorios para complementar"
+    ]
   },
 ];
 
@@ -46,7 +71,7 @@ const ServicesSection = () => (
         <div className="golden-line w-24 mx-auto mt-6" />
       </motion.div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service, i) => (
           <motion.div
             key={i}
@@ -54,11 +79,33 @@ const ServicesSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.6 }}
-            className="group bg-card rounded-lg border border-border hover:border-accent/50 p-8 transition-all duration-500 hover:shadow-gold"
+            className="group flex flex-col bg-card rounded-2xl border border-border/60 overflow-hidden hover:border-gold/50 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/10"
           >
-            <service.icon className="w-8 h-8 text-accent mb-5 group-hover:scale-110 transition-transform" />
-            <h3 className="font-display text-lg font-semibold text-foreground mb-3">{service.title}</h3>
-            <p className="font-body text-sm text-muted-foreground leading-relaxed">{service.desc}</p>
+            <div className="relative h-60 w-full overflow-hidden">
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+              />
+            </div>
+
+            <div className="p-8 flex-1 flex flex-col">
+              <h3 className="font-display text-xl font-bold text-foreground mb-3 group-hover:text-gold transition-colors">{service.title}</h3>
+              <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">{service.desc}</p>
+
+              <div className="mt-auto pt-6 border-t border-border/50">
+                <p className="text-xs font-semibold text-accent uppercase tracking-wider mb-4">Beneficios Incluidos:</p>
+                <ul className="space-y-3">
+                  {service.benefits.map((benefit, idx) => (
+                    <li key={idx} className="flex items-start text-sm text-foreground/80">
+                      <CheckCircle2 className="w-4 h-4 text-gold mr-3 shrink-0 mt-0.5" />
+                      <span className="font-body">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>

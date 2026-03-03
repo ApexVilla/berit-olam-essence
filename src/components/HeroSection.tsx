@@ -27,12 +27,18 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-rose">
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+      {/* Elegant Background Image */}
+      <div
+        className="absolute inset-0 bg-[url('/hero-bg-professional.png')] bg-cover bg-center bg-no-repeat opacity-60 pointer-events-none"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/50 pointer-events-none" />
+
       <GoldenParticles />
 
       {/* Subtle decorative circles */}
-      <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-accent/5 blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-primary/10 blur-3xl" />
+      <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-accent/10 blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-primary/20 blur-3xl" />
 
       <div className="container mx-auto px-6 py-32 text-center relative z-10">
         <motion.div
