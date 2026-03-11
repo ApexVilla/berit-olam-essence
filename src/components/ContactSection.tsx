@@ -8,7 +8,7 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const text = `Hola Berit Olam! 🌸\n\nNombre: ${form.nombre}\nTeléfono: ${form.telefono}\nEvento: ${form.evento}\nMensaje: ${form.mensaje}`;
-    window.open(`https://wa.me/1234567890?text=${encodeURIComponent(text)}`, "_blank");
+    window.open(`https://wa.me/584162284715?text=${encodeURIComponent(text)}`, "_blank");
   };
 
   return (

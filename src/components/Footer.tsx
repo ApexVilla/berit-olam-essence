@@ -39,8 +39,11 @@ const Footer = () => (
           <h4 className="font-display font-semibold text-accent mb-4 uppercase tracking-wider text-sm">Contacto</h4>
           <ul className="flex flex-col gap-3 font-body text-background/70 text-sm items-center md:items-start">
             <li className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-gold" />
-              <span>+1 (234) 567-8900</span>
+              <Phone className="w-4 h-4 text-gold flex-shrink-0" />
+              <div className="flex flex-col text-left">
+                <span>+58 416-2284715</span>
+                <span>+58 426-9143449</span>
+              </div>
             </li>
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-gold" />
@@ -48,7 +51,7 @@ const Footer = () => (
             </li>
             <li className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-gold" />
-              <span>Ciudad de México, CP 01000</span>
+              <span>Venezuela</span>
             </li>
           </ul>
 
