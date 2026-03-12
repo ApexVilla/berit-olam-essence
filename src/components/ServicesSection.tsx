@@ -14,8 +14,8 @@ const services = [
   },
   {
     image: "/service_personalized_gifts_1772579076984.png",
-    title: "Regalos Únicos y Personalizados",
-    desc: "Detalles artesanales diseñados para sorprender y emocionar a tus seres queridos.",
+    title: "Regalos Personalizados y Únicos",
+    desc: "Regalos personalizados y artesanales diseñados para sorprender y emocionar a tus seres queridos.",
     benefits: [
       "Empaquetado de lujo",
       "Caligrafía y sellos artísticos",
@@ -34,8 +34,8 @@ const services = [
   },
   {
     image: "/service_quinceanera_dress_1772579125461.png",
-    title: "Vestidos para 15 Años",
-    desc: "Piezas espectaculares para deslumbrar en tu transición mágica.",
+    title: "Vestidos para 15 Años (Quinceañera)",
+    desc: "Piezas espectaculares para deslumbrar en tu fiesta de quinceañera.",
     benefits: [
       "Bordados en cristales",
       "Faldas de volumen romántico",
@@ -55,8 +55,9 @@ const services = [
 ];
 
 const ServicesSection = () => (
-  <section id="servicios" className="py-24 bg-secondary/30">
-    <div className="container mx-auto px-6">
+  <section id="servicios" className="relative py-16 sm:py-20 lg:py-24 bg-secondary/30 section-frame overflow-hidden">
+    <div className="absolute inset-0 mesh-gold opacity-40 pointer-events-none" />
+    <div className="container mx-auto px-4 sm:px-6 relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +65,9 @@ const ServicesSection = () => (
         transition={{ duration: 0.6 }}
         className="text-center mb-16"
       >
-        <p className="text-accent font-body text-xs tracking-[0.3em] uppercase mb-4">Nuestros Servicios</p>
+        <p className="text-accent font-body text-[10px] sm:text-xs tracking-[0.4em] uppercase mb-4">
+          Nuestros Servicios
+        </p>
         <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
           Excelencia en Cada <span className="text-gradient-gold">Detalle</span>
         </h2>
@@ -79,19 +82,26 @@ const ServicesSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.6 }}
-            className="group flex flex-col bg-card rounded-2xl border border-border/60 overflow-hidden hover:border-gold/50 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/10"
+            className="group flex flex-col rounded-2xl border border-border/60 overflow-hidden transition-all duration-500 hover:border-gold/60 hover:-translate-y-1 glass-panel lux-shadow"
           >
-            <div className="relative h-60 w-full overflow-hidden">
+            <div className="relative h-52 sm:h-60 w-full overflow-hidden">
               <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+              <div className="absolute top-4 left-4 z-20 rounded-full border border-white/60 bg-white/80 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-foreground/70">
+                Atelier {String(i + 1).padStart(2, "0")}
+              </div>
               <img
                 src={service.image}
                 alt={service.title}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
             <div className="p-8 flex-1 flex flex-col">
-              <h3 className="font-display text-xl font-bold text-foreground mb-3 group-hover:text-gold transition-colors">{service.title}</h3>
+              <h3 className="font-display text-xl font-bold text-foreground mb-3 group-hover:text-gold transition-colors">
+                {service.title}
+              </h3>
               <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">{service.desc}</p>
 
               <div className="mt-auto pt-6 border-t border-border/50">
@@ -109,7 +119,7 @@ const ServicesSection = () => (
                   href={`https://wa.me/584162284715?text=${encodeURIComponent(`Hola Berit Olam! Me gustaría cotizar el servicio de: ${service.title}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto w-full inline-flex items-center justify-center px-4 py-2.5 bg-gold/10 hover:bg-gold text-gold hover:text-primary-foreground border border-gold transition-all duration-300 rounded-lg text-sm font-semibold tracking-wide"
+                  className="mt-auto w-full inline-flex items-center justify-center px-4 py-2.5 bg-gold/10 hover:bg-gold text-gold hover:text-primary-foreground border border-gold transition-all duration-300 rounded-full text-sm font-semibold tracking-wide"
                 >
                   Cotizar este servicio
                 </a>

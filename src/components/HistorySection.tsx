@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 import historyImage from "@/assets/history-image.jpg";
 
 const HistorySection = () => (
-  <section id="historia" className="py-24 bg-background">
-    <div className="container mx-auto px-6">
+  <section id="historia" className="relative py-16 sm:py-20 lg:py-24 bg-background section-frame overflow-hidden">
+    <div className="absolute inset-0 mesh-rose opacity-40 pointer-events-none" />
+    <div className="container mx-auto px-4 sm:px-6 relative z-10">
       <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Text */}
         <motion.div
@@ -22,7 +23,8 @@ const HistorySection = () => (
             El nombre de Berit Olam nace del hebreo a través de una revelación profunda basada en la palabra:
           </p>
 
-          <blockquote className="border-l-2 border-accent pl-6 py-2 mb-6">
+          <blockquote className="relative border-l-2 border-accent pl-6 py-4 mb-6">
+            <span className="absolute -left-3 -top-4 text-4xl text-accent/40 font-display">“</span>
             <p className="font-display italic text-foreground/80 text-base leading-relaxed">
               "Conoce, pues, que Jehová tu Dios es Dios, Dios fiel, que guarda el pacto y la misericordia… hasta mil generaciones."
             </p>
@@ -47,9 +49,10 @@ const HistorySection = () => (
           <div className="relative rounded-lg overflow-hidden shadow-gold">
             <img
               src={historyImage}
-              alt="Decoración artística romántica de Berit Olam"
-              className="w-full h-[400px] md:h-[500px] object-cover"
+              alt="Decoración de eventos romántica en Venezuela por Berit Olam"
+              className="w-full h-[320px] sm:h-[400px] md:h-[500px] object-cover"
               loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 to-transparent" />
           </div>

@@ -35,16 +35,25 @@ const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
   }, [started, target]);
 
   return (
-    <div ref={ref} className="font-display text-4xl md:text-5xl font-bold text-gradient-gold">
+    <div ref={ref} className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gradient-gold">
       {count}{suffix}
     </div>
   );
 };
 
 const StatsSection = () => (
-  <section className="py-20 bg-card">
-    <div className="container mx-auto px-6">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+  <section className="relative py-16 sm:py-20 bg-card section-frame overflow-hidden">
+    <div className="absolute inset-0 mesh-gold opacity-40 pointer-events-none" />
+    <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <div className="text-center mb-10">
+        <p className="text-[10px] sm:text-xs tracking-[0.4em] uppercase text-accent font-body mb-3">
+          Credenciales
+        </p>
+        <p className="font-display text-xl sm:text-2xl text-foreground/80 italic">
+          Experiencia que se nota en cada detalle
+        </p>
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
         {stats.map((stat, i) => (
           <motion.div
             key={i}
@@ -52,7 +61,7 @@ const StatsSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.15, duration: 0.6 }}
-            className="text-center"
+            className="text-center glass-panel rounded-2xl p-5 sm:p-6 lux-shadow"
           >
             <Counter target={stat.value} suffix={stat.suffix} />
             <p className="font-body text-sm font-semibold text-foreground mt-3 uppercase tracking-wider">

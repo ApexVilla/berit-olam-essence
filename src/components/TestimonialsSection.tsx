@@ -31,8 +31,9 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section id="testimonios" className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section id="testimonios" className="relative py-16 sm:py-20 lg:py-24 bg-secondary/30 section-frame overflow-hidden">
+      <div className="absolute inset-0 mesh-gold opacity-35 pointer-events-none" />
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,14 +41,14 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <p className="text-accent font-body text-xs tracking-[0.3em] uppercase mb-4">Testimonios</p>
+          <p className="text-accent font-body text-[10px] sm:text-xs tracking-[0.4em] uppercase mb-4">Testimonios</p>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
             Lo que Dicen <span className="text-gradient-gold">Nuestros Clientes</span>
           </h2>
           <div className="golden-line w-24 mx-auto mt-6" />
         </motion.div>
 
-        <div className="max-w-2xl mx-auto text-center min-h-[250px] flex items-center">
+        <div className="max-w-2xl mx-auto text-center min-h-[220px] sm:min-h-[250px] flex items-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -55,8 +56,9 @@ const TestimonialsSection = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="w-full"
+              className="w-full glass-panel rounded-3xl p-8 sm:p-10 lux-shadow relative overflow-hidden"
             >
+              <span className="absolute top-4 right-6 text-5xl text-accent/20 font-display">“</span>
               <div className="flex justify-center gap-1 mb-6">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-accent text-accent" />
